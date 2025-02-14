@@ -1,5 +1,11 @@
 import RPi.GPIO as GPIO
 import time
+import sys
+
+if __name__ == "__main__":
+    anzahlPinnchen = int(sys.argv[1])
+    fuellmenge = float(sys.argv[2])
+    fuelldauer = fuellmenge / 50
 
 # GPIO-Modus setzen
 GPIO.setmode(GPIO.BCM)
@@ -28,8 +34,9 @@ seq = [
     [1, 0, 0, 1]
 ]
 
-def motor_steuern(steps, delay=0.002):
+def motor_steuern(steps, delay=0.001):
     """Bewegt den Motor um eine bestimmte Anzahl von Schritten"""
+    print("Fahre zum nächsten Pinnchen ...")
     if steps < 0:
         seq.reverse()  # Drehrichtung umkehren
         steps = -steps
@@ -41,12 +48,18 @@ def motor_steuern(steps, delay=0.002):
             time.sleep(delay)
 
 try:
-    print("Motor dreht sich vorwärts...")
-    motor_steuern(512)  # 512 Schritte = ca. eine Umdrehung
-    time.sleep(1)
+#    anzahlPinnchen = 8
+    for x in range(anzahlPinnchen):
+        print(f"Befülle Pinnchen {x + 1} mit {fuellmenge} ml für {fuelldauer} Sekunden ...")
+        time.sleep(fuelldauer)
+        motor_steuern(int(512/ anzahlPinnchen))
+    
+    # print("Motor dreht sich vorwärts...")
+    # motor_steuern(128)  # 512 Schritte = ca. eine Umdrehung
+    # time.sleep(1)
 
-    print("Motor dreht sich rückwärts...")
-    motor_steuern(-512)
+    # print("Motor dreht sich rückwärts...")
+    # motor_steuern(-256)
 
 finally:
     GPIO.cleanup()
