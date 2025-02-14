@@ -1,11 +1,14 @@
 import RPi.GPIO as GPIO
 import time
 import sys
+import datetime
+import subprocess
+
 
 if __name__ == "__main__":
     anzahlPinnchen = int(sys.argv[1])
     fuellmenge = float(sys.argv[2])
-    fuelldauer = fuellmenge / 50
+    fuelldauer = fuellmenge / 10
 
 # GPIO-Modus setzen
 GPIO.setmode(GPIO.BCM)
@@ -15,6 +18,10 @@ IN1 = 17
 IN2 = 18
 IN3 = 27
 IN4 = 22
+
+# RELAIS_PIN = 4  # GPIO-Pin für die Pumpe
+# GPIO.setup(RELAIS_PIN, GPIO.OUT)
+# GPIO.output(RELAIS_PIN, 0)
 
 # Pin-Setup
 motor_pins = [IN1, IN2, IN3, IN4]
@@ -34,9 +41,14 @@ seq = [
     [1, 0, 0, 1]
 ]
 
+def log(inText):
+    c = datetime.datetime.now()
+    current_time = c.strftime('%H:%M:%S')
+    print(current_time + " " + inText)
+    
 def motor_steuern(steps, delay=0.001):
     """Bewegt den Motor um eine bestimmte Anzahl von Schritten"""
-    print("Fahre zum nächsten Pinnchen ...")
+    log("Fahre zum nächsten Pinnchen ...")
     if steps < 0:
         seq.reverse()  # Drehrichtung umkehren
         steps = -steps
@@ -47,11 +59,31 @@ def motor_steuern(steps, delay=0.001):
                 GPIO.output(pin, val)
             time.sleep(delay)
 
+def pumpe(delay):
+    GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
+    time.sleep(delay)
+    GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    log("Pumpe aus")
+    
+def pumpe_an():
+    GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
+
+def pumpe_aus():
+    GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    
 try:
-#    anzahlPinnchen = 8
+       
     for x in range(anzahlPinnchen):
-        print(f"Befülle Pinnchen {x + 1} mit {fuellmenge} ml für {fuelldauer} Sekunden ...")
-        time.sleep(fuelldauer)
+        log(f"Befülle Pinnchen {x + 1} mit {fuellmenge} ml für {fuelldauer} Sekunden ...")
+        subprocess.run(["python3", "pumpe.py", "2"])
+        # pumpe(fuelldauer)
+        # time.sleep(2)
+        #time.sleep(fuelldauer)
+        #pumpe_an()
+        #time.sleep(fuelldauer)
+        #print("Pumpe aus")
+        #pumpe_aus()
         motor_steuern(int(512/ anzahlPinnchen))
     
     # print("Motor dreht sich vorwärts...")
