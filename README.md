@@ -1,7 +1,7 @@
 # drehbarer-schnapsverteiler
 Dieses Projekt dient einem wichtigen Zweck: Der zeitnahen und zügigen Versorgung der Altherren mit Sasse Sechser
 
-## Aktueller Stand:
+## Aktueller Stand (15.02.2025):
 - Teller dreht
 - Pumpe pumpt
 - Software läuft
