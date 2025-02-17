@@ -24,11 +24,16 @@ def pumpe_aus():
     GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
 
 try:
-    log(f"Pumpe startet für {fuelldauer} Sekunden...")
-    pumpe_an()
-    time.sleep(fuelldauer)
-    log("Pumpe aus")
-    pumpe_aus()
+    
+    if fuelldauer > 0:
+        log(f"Pumpe startet für {fuelldauer} Sekunden...")
+        pumpe_an()
+        time.sleep(fuelldauer)
+        log("Pumpe aus")
+        pumpe_aus()
+    else:
+        log(f"Pumpenfunktion simuliert für 1 Sekunde...")
+        time.sleep(1)
 
 finally:
     GPIO.cleanup()
