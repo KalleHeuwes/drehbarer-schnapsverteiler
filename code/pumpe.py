@@ -34,6 +34,7 @@ try:
     else:
         log(f"Pumpenfunktion simuliert für 1 Sekunde...")
         time.sleep(1)
+        log("Pumpe aus")
 
 finally:
     GPIO.cleanup()
