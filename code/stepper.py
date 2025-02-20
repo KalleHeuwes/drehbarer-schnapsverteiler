@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
-import sys
 import datetime
+import sys
 import subprocess
 
 if __name__ == "__main__":
@@ -9,8 +9,7 @@ if __name__ == "__main__":
     fuellmenge = float(sys.argv[2])
     fuelldauer = fuellmenge / 10
 
-# GPIO-Modus setzen
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)      # GPIO-Modus setzen
 
 # Pins für den ULN2003 Motor Driver
 IN1 = 17

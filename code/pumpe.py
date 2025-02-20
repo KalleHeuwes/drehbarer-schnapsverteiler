@@ -6,10 +6,9 @@ import sys
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
 
-RELAIS_PIN = 4  # GPIO-Pin für das Relais
+GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 
-# GPIO-Modus setzen
-GPIO.setmode(GPIO.BCM)
+RELAIS_PIN = 4          # GPIO-Pin für das Relais
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 
 def log(inText):

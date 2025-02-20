@@ -1,14 +1,12 @@
 import RPi.GPIO as GPIO
 import time
-import sys
 import datetime
-import subprocess
+import sys
 
 if __name__ == "__main__":
     schritte = int(sys.argv[1])
 
-# GPIO-Modus setzen
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 
 # Pins für den ULN2003 Motor Driver
 IN1 = 17
