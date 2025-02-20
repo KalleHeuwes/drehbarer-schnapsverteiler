@@ -5,10 +5,11 @@ import sys
 
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
-
+log("Vor GPIO.setmode(GPIO.BCM)")
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
-
+log("Nach GPIO.setmode(GPIO.BCM)")
 RELAIS_PIN = 4          # GPIO-Pin für das Relais
+log("RELAIS_PIN = 4 ")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 
 def log(inText):
