@@ -41,7 +41,7 @@ def log(inText):
     
 def motor_steuern(steps, delay=0.001):
     """Bewegt den Motor um eine bestimmte Anzahl von Schritten"""
-    log("Fahre zum nächsten Pinnchen ...")
+    log(f"Fahre {schritte} Schritte, eine komplette Umdrehung sind 512 Schritte ...")
     if steps < 0:
         seq.reverse()  # Drehrichtung umkehren
         steps = -steps
