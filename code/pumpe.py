@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 import sys
+import lgpio
 
 def log(inText):
     c = datetime.datetime.now()
@@ -21,6 +22,9 @@ log("Vor GPIO.setmode(GPIO.BCM)")
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 log("Nach GPIO.setmode(GPIO.BCM)")
 RELAIS_PIN = 4          # GPIO-Pin für das Relais
+
+h = lgpio.gpiochip_open(0)  # 0 ist meistens der Haupt-GPIO-Chip
+lgpio.gpio_claim_output(h, RELAIS_PIN)  # Beispiel für Pin 17 als Ausgang
 log("Vor GPIO.setup(RELAIS_PIN, GPIO.OUT)")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 log("Nach GPIO.setup(RELAIS_PIN, GPIO.OUT)")
