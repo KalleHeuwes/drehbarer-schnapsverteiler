@@ -21,8 +21,9 @@ log("Vor GPIO.setmode(GPIO.BCM)")
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 log("Nach GPIO.setmode(GPIO.BCM)")
 RELAIS_PIN = 4          # GPIO-Pin für das Relais
-log("RELAIS_PIN = 4 ")
+log("Vor GPIO.setup(RELAIS_PIN, GPIO.OUT)")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
+log("Nach GPIO.setup(RELAIS_PIN, GPIO.OUT)")
 
 
 try:
