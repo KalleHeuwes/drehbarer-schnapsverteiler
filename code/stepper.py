@@ -3,6 +3,7 @@ import time
 import datetime
 import sys
 import subprocess
+import motorsteuerung
 
 if __name__ == "__main__":
     anzahlPinnchen = int(sys.argv[1])
@@ -40,7 +41,7 @@ def log(inText):
     current_time = c.strftime('%H:%M:%S')
     print(current_time + " " + inText)
     
-def motor_steuern(steps, delay=0.001):
+def motor_steuern_lokal(steps, delay=0.001):
     """Bewegt den Motor um eine bestimmte Anzahl von Schritten"""
     log("Fahre zum nächsten Pinnchen ...")
     if steps < 0:
@@ -58,7 +59,7 @@ try:
     for x in range(anzahlPinnchen):
         log(f"Befülle Pinnchen {x + 1} mit {fuellmenge} ml für {fuelldauer} Sekunden ...")
         subprocess.run(["python3", "pumpe.py", f"{fuelldauer}"])    # Pumpfunktion in Extrascript ausgelagert, da die Pumpe sonst durchgehend läuft
-        motor_steuern(int(512/ anzahlPinnchen))                     # 512 Schritte = ca. eine Umdrehung
+        motorsteuerung.motor_steuern(int(512/ anzahlPinnchen))                     # 512 Schritte = ca. eine Umdrehung
 
 finally:
     GPIO.cleanup()
