@@ -3,7 +3,6 @@ import time
 import datetime
 import sys
 import subprocess
-import motorsteuerung
 
 if __name__ == "__main__":
     anzahlPinnchen = int(sys.argv[1])
@@ -59,7 +58,8 @@ try:
     for x in range(anzahlPinnchen):
         log(f"Befülle Pinnchen {x + 1} mit {fuellmenge} ml für {fuelldauer} Sekunden ...")
         subprocess.run(["python3", "pumpe.py", f"{fuelldauer}"])    # Pumpfunktion in Extrascript ausgelagert, da die Pumpe sonst durchgehend läuft
-        motorsteuerung.motor_steuern(int(512/ anzahlPinnchen))                     # 512 Schritte = ca. eine Umdrehung
+        subprocess.run(["python3", "pmotorsteuerungumpe.py", f"{int(512/ anzahlPinnchen)}"])                     # 512 Schritte = ca. eine Umdrehung
+        #motorsteuerung.motor_steuern(int(512/ anzahlPinnchen))                     # 512 Schritte = ca. eine Umdrehung
 
 finally:
     GPIO.cleanup()
