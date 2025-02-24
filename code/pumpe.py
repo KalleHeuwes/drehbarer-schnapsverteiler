@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 import sys
-import lgpio
 
 def log(inText):
     c = datetime.datetime.now()
@@ -18,25 +17,19 @@ def pumpe_aus():
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
     
-log("Vor GPIO.setmode(GPIO.BCM)")
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
-log("Nach GPIO.setmode(GPIO.BCM)")
 RELAIS_PIN = 14          # GPIO-Pin für das Relais
-log("RELAIS_PIN = 14 ")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
-log("Nach GPIO.setup(RELAIS_PIN, GPIO.OUT)")
-
 
 try:
     
     if fuelldauer > 0:
-        log(f"Pumpe startet für {fuelldauer} Sekunden...")
+        log(f"* Pumpe startet für {fuelldauer} Sekunden...")
         pumpe_an()
         time.sleep(fuelldauer)
-        log("Pumpe aus")
         pumpe_aus()
     else:
-        log(f"Pumpenfunktion simuliert für 1 Sekunde...")
+        log(f"* Pumpenfunktion trocken simuliert für 1 Sekunde...")
         time.sleep(1)
         log("Pumpe aus")
 
