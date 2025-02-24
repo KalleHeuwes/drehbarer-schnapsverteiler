@@ -20,8 +20,8 @@ if __name__ == "__main__":
 log("Vor GPIO.setmode(GPIO.BCM)")
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 log("Nach GPIO.setmode(GPIO.BCM)")
-RELAIS_PIN = 4          # GPIO-Pin für das Relais
-log("RELAIS_PIN = 4 ")
+RELAIS_PIN = 14          # GPIO-Pin für das Relais
+log("RELAIS_PIN = 14 ")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 
 
