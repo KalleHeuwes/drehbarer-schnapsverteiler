@@ -17,7 +17,7 @@ Nr|GPIO|Funktion|Nr|GPIO|Funktion
 |-----|-----|-----|-----|-----|-----|
 |01||Power 3V|02||Power 5V|
 |03|GPIO2|SDA I2C|04||Power 5V|
-|05|GPIO3|SCLA I2C|06||GND|
+|05|GPIO3|SCL I2C|06||GND|
 |07|GPIO4||08|GPIO14|PUMPE|
 |09||GND|10|GPIO15||
 |11|GPIO17|MOTOR IN1|12|GPIO18|MOTOR IN2|
