@@ -26,13 +26,13 @@ Nr|GPIO|Funktion|Nr|GPIO|Funktion
 |17||Power 3V|18|GPIO24||
 |19|GPIO10||20||GND|
 |21|GPIO9||22|GPIO25||
-(23) GPIO11 :                   (24) GPIO8:
-(25) GND                        (26) GPIO7:
-(27) ID_SD                      (28) ID_SC
-(29) GPIO5  :                   (30) GND
-(31) GPIO6  :                   (32) GPIO12:
-(33) GPIO13 :                   (34) GND
-(35) GPIO19 :                   (36) GPIO16:
-(37) GPIO26 :                   (38) GPIO20:
-(39) GND                        (40) GPIO21:
+|23|GPIO11||24|GPIO8||
+|25||GND|26|GPIO7||
+|27||ID_SD|28||ID_SC|
+|29|GPIO5||30||GND|
+|31|GPIO6||32|GPIO12||
+|33|GPIO13||34||GND|
+|35|GPIO19||36|GPIO16||
+|37|GPIO26||38|GPIO20||
+|39||GND|40|GPIO21||
 
