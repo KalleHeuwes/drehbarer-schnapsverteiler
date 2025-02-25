@@ -10,9 +10,12 @@
     <div class="container">
         <h1>Willkommen zur Flask Webapp</h1>
         <p>Dies ist eine einfache Flask-Anwendung mit CSS-Design.</p>
-        <button>Klick mich</button>
+        <h2>Pumpensteuerung</h2>
 		<button onclick="fetch('/start')">Pumpe AN</button>
 		<button onclick="fetch('/stop')">Pumpe AUS</button>
+		<h2>Motorsteuerung</h2>
+		<button onclick="fetch('/motor_rechts')">Motor rechts</button>
+		<button onclick="fetch('/motor_links')">Motor links</button>
     </div>
 </body>
 </html>

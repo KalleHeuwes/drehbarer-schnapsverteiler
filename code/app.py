@@ -7,6 +7,16 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/motor_rechts")
+def motor_rechts():
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "f{12}"])
+    return "Motor 12 rechts"
+    
+@app.route("/motor_links")
+def motor_links():
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "f{-12}"])
+    return "Motor 12 links"
+    
 @app.route("/start")
 def start_pumpe():
     subprocess.Popen(["sudo", "python3", "pumpe.py", "0"])
