@@ -16,9 +16,9 @@ Dieses Projekt dient einem wichtigen Zweck: Der zeitnahen und zügigen Versorgun
 Nr|GPIO|Funktion|Nr|GPIO|Funktion
 |-----|-----|-----|-----|-----|-----|
 |01||Power 3V|02||Power 5V|
+|01||Power 3V|02||Power 5V|
+|03|GPIO2|SDA I2C|04||Power 5V|
 
-(01) Power 3V                   (02) Power 5V
-(03) GPIO2  : SDA I2C           (04) Power 5V
 (05) GPIO3  : SCLA I2C          (06) GND
 (07) GPIO4  : SDA I2C           (08) GPIO14: PUMPE
 (09) GND                        (10) GPIO15:
