@@ -21,12 +21,11 @@ Nr|GPIO|Funktion|Nr|GPIO|Funktion
 |07|GPIO4||08|GPIO14|PUMPE|
 |09||GND|10|GPIO15||
 |11|GPIO17|MOTOR IN1|12|GPIO18|MOTOR IN2|
-
-(13) GPIO27 : MOTOR IN3         (14) GND
-(15) GPIO22 : MOTOR IN4         (16) GPIO23:
-(17) Power 3V                   (18) GPIO24:
-(19) GPIO10 :                   (20) GND
-(21) GPIO9  :                   (22) GPIO25:
+|13|GPIO27|MOTOR IN3|14||GND|
+|15|GPIO22|MOTOR IN4|16|GPIO23||
+|17||Power 3V|18|GPIO24||
+|19|GPIO10||20||GND|
+|21|GPIO9||22|GPIO25||
 (23) GPIO11 :                   (24) GPIO8:
 (25) GND                        (26) GPIO7:
 (27) ID_SD                      (28) ID_SC
