@@ -15,11 +15,11 @@ Dieses Projekt dient einem wichtigen Zweck: Der zeitnahen und zügigen Versorgun
 ## Pinbelegung Raspi:
 Nr|GPIO|Funktion|Nr|GPIO|Funktion
 |-----|-----|-----|-----|-----|-----|
-|01|Power 3V||02|Power 5V||
-|03|GPIO2|SDA I2C|04|Power 5V||
-|05|GPIO3|SCL I2C|06|GND||
+|01|Power 3V||02|Power 5V|`PUMPE`|
+|03|GPIO2|SDA I2C|04|Power 5V|`MOTOR`|
+|05|GPIO3|SCL I2C|06|GND|`MOTOR`|
 |07|GPIO4||08|GPIO14|`PUMPE`|
-|09|GND||10|GPIO15||
+|09|GND|`PUMPE`|10|GPIO15||
 |11|GPIO17|`MOTOR` IN1|12|GPIO18|`MOTOR` IN2|
 |13|GPIO27|`MOTOR` IN3|14|GND||
 |15|GPIO22|`MOTOR` IN4|16|GPIO23||
