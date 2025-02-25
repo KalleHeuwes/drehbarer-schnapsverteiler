@@ -9,12 +9,12 @@ def home():
 
 @app.route("/motor_rechts")
 def motor_rechts():
-    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "f{12}"])
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "12"])
     return "Motor 12 rechts"
     
 @app.route("/motor_links")
 def motor_links():
-    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "f{-12}"])
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", "-12"])
     return "Motor 12 links"
     
 @app.route("/start")
