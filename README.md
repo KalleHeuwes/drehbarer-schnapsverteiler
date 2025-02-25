@@ -13,6 +13,10 @@ Dieses Projekt dient einem wichtigen Zweck: Der zeitnahen und zügigen Versorgun
 - Rollenlager für Drehteller einbauen
 
 ## Pinbelegung Raspi:
+Nr|GPIO|Funktion|Nr|GPIO|Funktion
+|-----|-----|-----|-----|-----|-----|
+|01||Power 3V|02||Power 5V|
+
 (01) Power 3V                   (02) Power 5V
 (03) GPIO2  : SDA I2C           (04) Power 5V
 (05) GPIO3  : SCLA I2C          (06) GND
