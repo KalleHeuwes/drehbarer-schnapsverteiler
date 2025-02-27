@@ -15,7 +15,6 @@
 		<button onclick="fetch('/start')">Pumpe AN</button>
 		<button onclick="fetch('/stop')">Pumpe AUS</button>
 		<h2>Motorsteuerung</h2>
-		<input id="schrittweite">12</input>
 		<button onclick="fetch('/motor_rechts')">Motor rechts</button>
 		<button onclick="fetch('/motor_links')">Motor links</button>
 		
@@ -30,8 +29,7 @@
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({ schrittweite: wert })
 			})
-			.then(response => response.text())
-			.then(data => alert("Server-Antwort: " + data));
+			.then(response => response.text());
 		}
 		</script>
     </div>
