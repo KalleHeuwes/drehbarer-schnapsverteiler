@@ -7,6 +7,7 @@ app = Flask(__name__)
 def verarbeite():
     data = request.get_json()
     schrittweite = data.get("schrittweite", "Keine Daten erhalten")
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", f"{schrittweite}"])
     return jsonify({"empfangen": schrittweite})
     
 @app.route("/")
