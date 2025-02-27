@@ -15,8 +15,25 @@
 		<button onclick="fetch('/start')">Pumpe AN</button>
 		<button onclick="fetch('/stop')">Pumpe AUS</button>
 		<h2>Motorsteuerung</h2>
+		<input id="schrittweite">12</input>
 		<button onclick="fetch('/motor_rechts')">Motor rechts</button>
 		<button onclick="fetch('/motor_links')">Motor links</button>
+		
+		<input type="text" id="schrittweite">
+		<button onclick="senden()">Senden</button>
+
+		<script>
+		function senden() {
+			let wert = document.getElementById("schrittweite").value;
+			fetch('/verarbeite', {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify({ schrittweite: wert })
+			})
+			.then(response => response.text())
+			.then(data => alert("Server-Antwort: " + data));
+		}
+		</script>
     </div>
 </body>
 </html>
