@@ -9,6 +9,7 @@ def log(inText):
     print(current_time + " " + inText)
     
 def pumpe_an():
+    log(f"* bin in Pumpe an...")
     GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
 
 def pumpe_aus():
@@ -16,10 +17,13 @@ def pumpe_aus():
     
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
-    
+
+log("* 1...")    
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
+log("* 2...")    
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
+log("* 3...")    
 pumpe_aus()
 
 try:
