@@ -16,6 +16,7 @@ def pumpe_an():
     GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
 
 def pumpe_aus():
+    GPIO.setup(RELAIS_PIN, GPIO.OUT)
     GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
 
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
