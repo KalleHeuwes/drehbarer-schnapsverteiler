@@ -17,20 +17,22 @@ def pumpe_aus():
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
     
+RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
-RELAIS_PIN = 14          # GPIO-Pin für das Relais
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 
 try:
-    
     if fuelldauer > 0:
         log(f"* Pumpe startet für {fuelldauer} Sekunden...")
         pumpe_an()
         time.sleep(fuelldauer)
         pumpe_aus()
-    else:
-        log(f"* Pumpenfunktion trocken simuliert für 1 Sekunde...")
-        time.sleep(1)
+    if fuelldauer = 0:
+        pumpe_aus()
+    if fuelldauer < 0:
+        fuelldauer = abs(fuelldauer)
+        log(f"* Pumpenfunktion trocken simuliert für {fuelldauer} Sekunde(n)...")
+        time.sleep(fuelldauer)
         log("Pumpe aus")
 
 finally:
