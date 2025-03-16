@@ -12,6 +12,7 @@ def log(inText):
     print(current_time + " " + inText)
     
 def pumpe(val):
+    GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
     GPIO.setup(RELAIS_PIN, GPIO.OUT)
     GPIO.output(RELAIS_PIN, val)   # Relais aktivieren/ deaktivieren
     GPIO.cleanup()
@@ -23,7 +24,7 @@ def pumpe_aus():
     pumpe(GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
 
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
-GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
+
 
 if fuelldauer > 0:
     log(f"* Pumpe startet für {fuelldauer} Sekunden...")
