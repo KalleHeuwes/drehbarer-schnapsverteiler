@@ -24,7 +24,7 @@ RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 log("* 2...")
 input("Press Enter to continue...")
-GPIO.setup(RELAIS_PIN, GPIO.OUT, pull_up_down = GPIO.PUD_DOWN)
+GPIO.setup(RELAIS_PIN, GPIO.OUT, initial=GPIO.LOW)
 log("* 3...")
 input("Press Enter to continue...")
 pumpe_aus()
