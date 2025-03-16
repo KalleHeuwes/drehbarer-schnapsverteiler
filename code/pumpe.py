@@ -27,7 +27,7 @@ try:
         pumpe_an()
         time.sleep(fuelldauer)
         pumpe_aus()
-    if fuelldauer = 0:
+    if fuelldauer == 0:
         pumpe_aus()
     if fuelldauer < 0:
         fuelldauer = abs(fuelldauer)
