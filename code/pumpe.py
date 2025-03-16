@@ -20,6 +20,7 @@ if __name__ == "__main__":
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
+pumpe_aus()
 
 try:
     if fuelldauer > 0:
