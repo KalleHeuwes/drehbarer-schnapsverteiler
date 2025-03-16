@@ -11,29 +11,29 @@ def log(inText):
     current_time = c.strftime('%H:%M:%S')
     print(current_time + " " + inText)
     
-def pumpe_an():
+def pumpe(val):
     GPIO.setup(RELAIS_PIN, GPIO.OUT)
-    GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
+    GPIO.output(RELAIS_PIN, val)   # Relais aktivieren/ deaktivieren
+    GPIO.cleanup()
+    
+def pumpe_an():
+    pumpe(GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
 
 def pumpe_aus():
-    GPIO.setup(RELAIS_PIN, GPIO.OUT)
-    GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    pumpe(GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
 
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 
-try:
-    if fuelldauer > 0:
-        log(f"* Pumpe startet für {fuelldauer} Sekunden...")
-        pumpe_an()
-        time.sleep(fuelldauer)
-        pumpe_aus()
-    if fuelldauer == 0:
-        pumpe_aus()
-    if fuelldauer < 0:
-        log(f"* Pumpenfunktion trocken simuliert für {abs(fuelldauer)} Sekunde(n)...")
-        time.sleep(abs(fuelldauer))
-        log("Pumpe aus")
+if fuelldauer > 0:
+    log(f"* Pumpe startet für {fuelldauer} Sekunden...")
+    pumpe_an()
+    time.sleep(fuelldauer)
+    pumpe_aus()
+if fuelldauer == 0:
+    pumpe_aus()
+if fuelldauer < 0:
+    log(f"* Pumpenfunktion trocken simuliert für {abs(fuelldauer)} Sekunde(n)...")
+    time.sleep(abs(fuelldauer))
+    log("Pumpe aus")
 
-finally:
-    GPIO.cleanup()
