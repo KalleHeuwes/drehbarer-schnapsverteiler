@@ -1,8 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import subprocess
 
 app = Flask(__name__)
 
+@app.route("/verarbeite", methods=["POST"])
+def verarbeite():
+    data = request.get_json()
+    schrittweite = data.get("schrittweite", "Keine Daten erhalten")
+    subprocess.Popen(["sudo", "python3", "motorsteuerung.py", f"{schrittweite}"])
+    return jsonify({"empfangen": schrittweite})
+    
 @app.route("/")
 def home():
     return render_template("index.html")
