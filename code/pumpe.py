@@ -5,6 +5,9 @@ import sys
     
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
+
+RELAIS_PIN = 14         # GPIO-Pin für das Relais
+GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
     
 def log(inText):
     c = datetime.datetime.now()
@@ -14,15 +17,11 @@ def log(inText):
 def pumpe_an():
     GPIO.setup(RELAIS_PIN, GPIO.OUT)
     GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
-    GPIO.cleanup()
 
 def pumpe_aus():
     GPIO.setup(RELAIS_PIN, GPIO.OUT)
     GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
     GPIO.cleanup()
-
-RELAIS_PIN = 14         # GPIO-Pin für das Relais
-GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 
 if fuelldauer > 0:
     log(f"* Pumpe startet für {fuelldauer} Sekunden...")
