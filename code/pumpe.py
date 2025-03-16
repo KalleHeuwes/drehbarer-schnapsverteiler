@@ -30,9 +30,8 @@ try:
     if fuelldauer == 0:
         pumpe_aus()
     if fuelldauer < 0:
-        fuelldauer = abs(fuelldauer)
-        log(f"* Pumpenfunktion trocken simuliert für {fuelldauer} Sekunde(n)...")
-        time.sleep(fuelldauer)
+        log(f"* Pumpenfunktion trocken simuliert für {abs(fuelldauer)} Sekunde(n)...")
+        time.sleep(abs(fuelldauer))
         log("Pumpe aus")
 
 finally:
