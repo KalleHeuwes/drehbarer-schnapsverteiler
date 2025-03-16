@@ -11,20 +11,18 @@ def log(inText):
     current_time = c.strftime('%H:%M:%S')
     print(current_time + " " + inText)
     
-def pumpe(val):
-    GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
-    GPIO.setup(RELAIS_PIN, GPIO.OUT)
-    GPIO.output(RELAIS_PIN, val)   # Relais aktivieren/ deaktivieren
-    GPIO.cleanup()
-    
 def pumpe_an():
-    pumpe(GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
+    GPIO.setup(RELAIS_PIN, GPIO.OUT)
+    GPIO.output(RELAIS_PIN, GPIO.HIGH)  # Relais aktivieren (Pumpe EIN)
+    GPIO.cleanup()
 
 def pumpe_aus():
-    pumpe(GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    GPIO.setup(RELAIS_PIN, GPIO.OUT)
+    GPIO.output(RELAIS_PIN, GPIO.LOW)   # Relais deaktivieren (Pumpe AUS)
+    GPIO.cleanup()
 
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
-
+GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
 
 if fuelldauer > 0:
     log(f"* Pumpe startet für {fuelldauer} Sekunden...")
