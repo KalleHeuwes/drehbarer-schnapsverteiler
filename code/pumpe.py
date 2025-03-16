@@ -18,12 +18,15 @@ def pumpe_aus():
 if __name__ == "__main__":
     fuelldauer = float(sys.argv[1])
 
-log("* 1...")    
+log("* 1...")
+input("Press Enter to continue...")
 RELAIS_PIN = 14         # GPIO-Pin für das Relais
 GPIO.setmode(GPIO.BCM)  # GPIO-Modus setzen
-log("* 2...")    
+log("* 2...")
+input("Press Enter to continue...")
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
-log("* 3...")    
+log("* 3...")
+input("Press Enter to continue...")
 pumpe_aus()
 
 try:
